@@ -345,13 +345,60 @@
   }
 
   @media (max-width: 600px) {
-    .team-grid { grid-template-columns: 1fr 1fr; }
-    .team-card { padding: 36px 22px; min-height: 280px; }
-    .team-initial { font-size: 60px; }
-    .team-name { font-size: 22px; }
+    nav.main-nav { padding: 12px 16px; }
+    .nav-logo { font-size: 16px; letter-spacing: 2px; }
 
-    .big-stat { padding: 24px 16px; }
-    .big-stat .num { font-size: 36px; }
+    section.content-section { padding: 40px 16px; }
+    .page-header { padding: 100px 16px 40px; }
+    .hero { padding: 80px 16px 40px; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .hero-btns a { width: 100%; text-align: center; padding: 14px 20px; }
+
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .team-card { padding: 32px 18px; min-height: 260px; }
+    .team-initial { font-size: 54px; }
+    .team-name { font-size: 20px; }
+    .team-role { font-size: 9px; }
+    .team-desc { font-size: 12px; }
+
+    .big-stat { padding: 22px 14px; }
+    .big-stat .num { font-size: 32px; }
+    .big-stat .label { font-size: 9px; letter-spacing: 2px; }
+
+    .card, .card-dark { padding: 24px 20px; }
+    .card-title { font-size: 22px; }
+    .card-text { font-size: 12px; }
+    .card-number { font-size: 38px; }
+
+    .location-box, .feature-highlight { padding: 28px 20px; }
+    .location-box-main { font-size: 26px; }
+    .location-box-sub { font-size: 13px; }
+    .landmark-text { font-size: 13px; }
+
+    .quote-block { padding: 10px 0 10px 18px; margin: 24px 0; font-size: 16px; }
+
+    .contact-value { font-size: 18px; }
+
+    .mobile-menu a { padding: 12px 14px; font-size: 11px; }
+
+    .form-row { grid-template-columns: 1fr; gap: 12px; }
+    .contact-form input, .contact-form select, .contact-form textarea { padding: 14px 16px; font-size: 13px; }
+
+    footer { padding: 24px 16px; gap: 16px; }
+    .footer-logo { font-size: 16px; }
+    .footer-copy { font-size: 10px; }
+
+    .table-simple { font-size: 12px; }
+    .table-simple th, .table-simple td { padding: 10px 10px; font-size: 12px; }
+    .table-simple th { font-size: 9px; letter-spacing: 1px; }
+  }
+
+  @media (max-width: 380px) {
+    .nav-logo { font-size: 14px; letter-spacing: 1.5px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 44px; }
+    .page-title { font-size: 34px; }
+    .section-title { font-size: 26px; }
   }
 </style>
 </head>
