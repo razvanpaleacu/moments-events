@@ -48,7 +48,7 @@
   }
   .nav-logo span { color: var(--gold); }
 
-  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links { display: flex; gap: 26px; list-style: none; }
   .nav-links a {
     font-size: 11px; font-weight: 500; letter-spacing: 2px;
     text-transform: uppercase; color: rgba(245,240,232,0.7);
@@ -67,6 +67,65 @@
     font-family: 'Montserrat', sans-serif;
   }
   .nav-cta:hover { background: var(--gold2); }
+
+  /* ── MOBILE SCROLL NAV ── */
+  .mobile-scroll-nav {
+    display: none;
+    position: fixed; top: 58px; left: 0; right: 0;
+    background: rgba(15,30,53,0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,151,42,0.2);
+    z-index: 99;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mobile-scroll-nav::-webkit-scrollbar { display: none; }
+  .mobile-scroll-nav-inner {
+    display: flex; gap: 0;
+    padding: 0 12px;
+    white-space: nowrap;
+    min-width: max-content;
+  }
+  .mobile-scroll-nav a {
+    padding: 14px 14px;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    flex-shrink: 0;
+  }
+  .mobile-scroll-nav a.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+  .mobile-scroll-nav a:active { color: var(--gold); }
+
+  /* ── MOBILE MENU ── */
+  .menu-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--cream); font-size: 26px; padding: 4px 8px;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 62px; left: 0; right: 0;
+    background: rgba(15,30,53,0.98);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    flex-direction: column; gap: 4px;
+    border-bottom: 1px solid rgba(196,151,42,0.2);
+    z-index: 99;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block; padding: 14px 16px;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(245,240,232,0.75); text-decoration: none;
+    border-bottom: 1px solid rgba(196,151,42,0.08);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
 
   /* ── PAGES ── */
   .page { display: none; animation: fadeIn 0.5s ease; }
@@ -90,7 +149,7 @@
   .hero-content { text-align: center; position: relative; z-index: 2; max-width: 900px; }
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(56px, 10vw, 130px);
+    font-size: clamp(52px, 10vw, 130px);
     font-weight: 300; line-height: 0.95;
     color: var(--cream); letter-spacing: -1px; margin-bottom: 12px;
   }
@@ -98,7 +157,7 @@
   .hero-divider { width: 80px; height: 1px; background: var(--gold); margin: 40px auto; }
   .hero-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 26px; font-weight: 300; font-style: italic;
+    font-size: clamp(20px, 3vw, 26px); font-weight: 300; font-style: italic;
     color: rgba(245,240,232,0.7); margin-bottom: 52px;
   }
   .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
@@ -134,7 +193,7 @@
   }
   .page-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 7vw, 86px);
+    font-size: clamp(40px, 7vw, 86px);
     font-weight: 300; line-height: 1;
     color: var(--cream); margin-bottom: 20px;
   }
@@ -149,7 +208,7 @@
   .container { max-width: 1200px; margin: 0 auto; }
 
   .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--navy); margin-bottom: 20px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--navy); margin-bottom: 20px; }
   .section-title em { font-style: italic; color: var(--gold); }
   .section-body { font-size: 15px; line-height: 1.9; color: #2a2a3e; margin-bottom: 20px; }
 
@@ -171,13 +230,13 @@
   .card-text { font-size: 13px; line-height: 1.7; color: var(--gray); font-weight: 400; }
 
   .big-stat { text-align: center; padding: 32px 24px; background: var(--navy); color: var(--cream); }
-  .big-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .big-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px; }
   .big-stat .num span { font-size: 20px; color: rgba(245,240,232,0.5); }
   .big-stat .label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(245,240,232,0.5); }
 
   .quote-block {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 24px; font-style: italic; font-weight: 300;
+    font-size: clamp(18px, 2.5vw, 24px); font-style: italic; font-weight: 300;
     color: var(--navy); line-height: 1.5;
     border-left: 3px solid var(--gold);
     padding: 16px 0 16px 32px; margin: 40px 0;
@@ -190,6 +249,22 @@
   .table-simple td.highlight { color: var(--gold); font-weight: 600; }
   .table-simple tr.total td { background: var(--cream); font-weight: 700; color: var(--navy); }
 
+  .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* ── FEATURE HIGHLIGHT ── */
+  .feature-highlight {
+    background: var(--navy); color: var(--cream);
+    padding: 56px; border-left: 3px solid var(--gold);
+    margin-top: 40px;
+  }
+  .feature-highlight h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 300; margin-bottom: 16px;
+    color: var(--cream);
+  }
+  .feature-highlight h3 em { font-style: italic; color: var(--gold); }
+  .feature-highlight p { font-size: 15px; color: rgba(245,240,232,0.7); line-height: 1.8; }
+
   /* ── STANDORT PAGE ── */
   .location-box {
     background: var(--navy); color: var(--cream);
@@ -197,7 +272,7 @@
     margin-top: 40px;
   }
   .location-box-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 16px; }
-  .location-box-main { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 16px; }
+  .location-box-main { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 300; line-height: 1.2; color: var(--cream); margin-bottom: 16px; }
   .location-box-main em { font-style: italic; color: var(--gold); }
   .location-box-sub { font-size: 15px; color: rgba(245,240,232,0.55); margin-top: 12px; line-height: 1.8; }
   .landmarks-list { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
@@ -209,6 +284,23 @@
   }
   .landmark-text { font-size: 14px; color: rgba(245,240,232,0.75); line-height: 1.6; }
   .landmark-text strong { color: var(--cream); font-weight: 600; }
+
+  /* ── ROOMS GRID ── */
+  .rooms-detail {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    margin-top: 40px;
+  }
+  .room-card-full {
+    background: white; padding: 48px;
+    display: flex; flex-direction: column; gap: 16px;
+    border-top: 3px solid var(--gold);
+  }
+  .room-card-full h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--navy); }
+  .room-card-full .room-size { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+  .room-card-full p { font-size: 14px; line-height: 1.8; color: var(--gray); }
+  .room-card-full ul { list-style: none; padding: 0; margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .room-card-full li { font-size: 13px; color: #2a2a3e; padding-left: 20px; position: relative; }
+  .room-card-full li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
 
   /* ── TEAM PAGE ── */
   .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 40px; }
@@ -258,20 +350,93 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    nav.main-nav { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+    nav.main-nav { padding: 14px 20px; }
     .nav-links { display: none; }
-    .nav-cta { padding: 8px 16px; font-size: 10px; }
-    section.content-section { padding: 60px 24px; }
-    .page-header { padding: 130px 24px 60px; }
-    .hero { padding: 100px 24px 60px; }
-    .grid-2, .grid-3, .grid-4, .contact-grid, .team-grid { grid-template-columns: 1fr; gap: 16px; }
+    .nav-cta { display: none; }
+    .menu-toggle { display: none; }
+    .mobile-scroll-nav { display: block; }
+
+    section.content-section { padding: 50px 20px; }
+    .page-header { padding: 140px 20px 50px; }
+    .hero { padding: 120px 20px 50px; min-height: 85vh; }
+    .hero-divider { margin: 30px auto; }
+
+    .grid-2, .grid-3, .grid-4, .contact-grid, .rooms-detail { grid-template-columns: 1fr; gap: 16px; }
+    .grid-4 { gap: 12px; }
+
+    .card, .card-dark { padding: 28px; }
+    .card-number { font-size: 44px; }
+
     footer { padding: 30px 20px; text-align: center; justify-content: center; }
-    .location-box { padding: 36px; }
-    .location-box-main { font-size: 30px; }
+
+    .location-box, .feature-highlight { padding: 32px 24px; }
+
+    .quote-block { padding: 12px 0 12px 20px; margin: 28px 0; }
+
+    .table-simple th, .table-simple td { padding: 12px 14px; font-size: 13px; }
+    .table-simple th { font-size: 10px; }
+
+    .room-card-full { padding: 32px 24px; }
+    .room-card-full h3 { font-size: 26px; }
   }
 
   @media (max-width: 600px) {
-    .team-grid { grid-template-columns: 1fr 1fr; }
+    nav.main-nav { padding: 12px 16px; }
+    .nav-logo { font-size: 16px; letter-spacing: 2px; }
+    .mobile-scroll-nav { top: 50px; }
+    .mobile-scroll-nav a { padding: 12px 12px; font-size: 10px; letter-spacing: 1.3px; }
+
+    section.content-section { padding: 40px 16px; }
+    .page-header { padding: 120px 16px 40px; }
+    .hero { padding: 110px 16px 40px; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .hero-btns a { width: 100%; text-align: center; padding: 14px 20px; }
+
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+    .team-card { padding: 32px 18px; min-height: 260px; }
+    .team-initial { font-size: 54px; }
+    .team-name { font-size: 20px; }
+    .team-role { font-size: 9px; }
+    .team-desc { font-size: 12px; }
+
+    .big-stat { padding: 22px 14px; }
+    .big-stat .num { font-size: 32px; }
+    .big-stat .label { font-size: 9px; letter-spacing: 2px; }
+
+    .card, .card-dark { padding: 24px 20px; }
+    .card-title { font-size: 22px; }
+    .card-text { font-size: 12px; }
+    .card-number { font-size: 38px; }
+
+    .location-box, .feature-highlight { padding: 28px 20px; }
+    .location-box-main { font-size: 26px; }
+    .location-box-sub { font-size: 13px; }
+    .landmark-text { font-size: 13px; }
+
+    .quote-block { padding: 10px 0 10px 18px; margin: 24px 0; font-size: 16px; }
+
+    .contact-value { font-size: 18px; }
+
+    .mobile-menu a { padding: 12px 14px; font-size: 11px; }
+
+    .form-row { grid-template-columns: 1fr; gap: 12px; }
+    .contact-form input, .contact-form select, .contact-form textarea { padding: 14px 16px; font-size: 13px; }
+
+    footer { padding: 24px 16px; gap: 16px; }
+    .footer-logo { font-size: 16px; }
+    .footer-copy { font-size: 10px; }
+
+    .table-simple { font-size: 12px; }
+    .table-simple th, .table-simple td { padding: 10px 10px; font-size: 12px; }
+    .table-simple th { font-size: 9px; letter-spacing: 1px; }
+  }
+
+  @media (max-width: 380px) {
+    .nav-logo { font-size: 14px; letter-spacing: 1.5px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 44px; }
+    .page-title { font-size: 34px; }
+    .section-title { font-size: 26px; }
   }
 </style>
 </head>
@@ -284,6 +449,7 @@
     <li><a onclick="showPage('about')" data-page="about">Über uns</a></li>
     <li><a onclick="showPage('standort')" data-page="standort">Standort</a></li>
     <li><a onclick="showPage('raume')" data-page="raume">Räume</a></li>
+    <li><a onclick="showPage('zimmer')" data-page="zimmer">Zimmer</a></li>
     <li><a onclick="showPage('angebote')" data-page="angebote">Angebote</a></li>
     <li><a onclick="showPage('markt')" data-page="markt">Markt</a></li>
     <li><a onclick="showPage('marketing')" data-page="marketing">Marketing</a></li>
@@ -291,7 +457,39 @@
     <li><a onclick="showPage('team')" data-page="team">Team</a></li>
   </ul>
   <a class="nav-cta" onclick="showPage('kontakt')">Kontakt</a>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home'); toggleMenu()">Home</a>
+  <a onclick="showPage('about'); toggleMenu()">Über uns</a>
+  <a onclick="showPage('standort'); toggleMenu()">Standort</a>
+  <a onclick="showPage('raume'); toggleMenu()">Räume</a>
+  <a onclick="showPage('zimmer'); toggleMenu()">Zimmer</a>
+  <a onclick="showPage('angebote'); toggleMenu()">Angebote</a>
+  <a onclick="showPage('markt'); toggleMenu()">Markt</a>
+  <a onclick="showPage('marketing'); toggleMenu()">Marketing</a>
+  <a onclick="showPage('finanzen'); toggleMenu()">Finanzen</a>
+  <a onclick="showPage('team'); toggleMenu()">Team</a>
+  <a onclick="showPage('kontakt'); toggleMenu()">Kontakt</a>
+</div>
+
+<!-- MOBILE SCROLLABLE NAV BAR -->
+<div class="mobile-scroll-nav" id="mobileScrollNav">
+  <div class="mobile-scroll-nav-inner">
+    <a onclick="showPage('home')" data-scroll-page="home">Home</a>
+    <a onclick="showPage('about')" data-scroll-page="about">Über uns</a>
+    <a onclick="showPage('standort')" data-scroll-page="standort">Standort</a>
+    <a onclick="showPage('raume')" data-scroll-page="raume">Räume</a>
+    <a onclick="showPage('zimmer')" data-scroll-page="zimmer">Zimmer</a>
+    <a onclick="showPage('angebote')" data-scroll-page="angebote">Angebote</a>
+    <a onclick="showPage('markt')" data-scroll-page="markt">Markt</a>
+    <a onclick="showPage('marketing')" data-scroll-page="marketing">Marketing</a>
+    <a onclick="showPage('finanzen')" data-scroll-page="finanzen">Finanzen</a>
+    <a onclick="showPage('team')" data-scroll-page="team">Team</a>
+    <a onclick="showPage('kontakt')" data-scroll-page="kontakt">Kontakt</a>
+  </div>
+</div>
 
 <!-- ═══ HOME ═══ -->
 <div class="page active" id="home">
@@ -312,14 +510,14 @@
       <div style="text-align:center; max-width:700px; margin:0 auto">
         <p class="section-eyebrow">Willkommen bei Moments Events</p>
         <h2 class="section-title">Der Ort, an dem <em>Erinnerungen</em> entstehen</h2>
-        <p class="section-body">Wir sind mehr als nur ein Saal für Veranstaltungen. Wir sind der Ort, an dem Ihre wichtigsten Momente in eine bleibende Erinnerung verwandelt werden — mit einer eigenen Location, einer professionellen Küche und einem dedizierten Team, das sich um jedes Detail kümmert.</p>
+        <p class="section-body">Wir sind mehr als nur ein Saal für Veranstaltungen. Wir sind der Ort, an dem Ihre wichtigsten Momente in eine bleibende Erinnerung verwandelt werden — mit einer eigenen Location, einer professionellen Küche, 7 Gästezimmern und einem dedizierten Team, das sich um jedes Detail kümmert.</p>
       </div>
       <div class="grid-3">
         <div class="card">
           <div class="card-number">3</div>
           <p class="card-sub">Räume</p>
           <p class="card-title">Grand, Crystal & Garden</p>
-          <p class="card-text">Drei unterschiedliche Räume für jede Art von Veranstaltung — große Hochzeiten, intime Feiern oder Zeremonien im Freien.</p>
+          <p class="card-text">Drei unterschiedliche Räume für jede Art von Veranstaltung — mit mobiler Trennwand für maximale Flexibilität.</p>
         </div>
         <div class="card">
           <div class="card-number">400</div>
@@ -328,10 +526,10 @@
           <p class="card-text">Im Grand Hall haben bis zu 400 Gäste am Tisch Platz — genug für die größten Hochzeiten und Firmengalas.</p>
         </div>
         <div class="card">
-          <div class="card-number">1</div>
-          <p class="card-sub">Ansprechpartner</p>
-          <p class="card-title">Full Service</p>
-          <p class="card-text">Saal, Catering, Dekoration und Koordination — alles an einem Ort, mit einem einzigen Ansprechpartner.</p>
+          <div class="card-number">7</div>
+          <p class="card-sub">Zimmer</p>
+          <p class="card-title">Übernachtung vor Ort</p>
+          <p class="card-text">Unsere 7 Gästezimmer bieten Platz für 16 Personen — ein Vorteil, den kein Mitbewerber in Timișoara hat.</p>
         </div>
       </div>
     </div>
@@ -350,8 +548,8 @@
   <section class="content-section">
     <div class="container">
       <p class="section-eyebrow">Was wir machen</p>
-      <h2 class="section-title">Der Unterschied: <em>ein eigener Ort</em></h2>
-      <p class="section-body">Moments Events ist ein Premium Event-Venue in Timișoara. Im Gegensatz zu klassischen Veranstaltungsagenturen, die zum Kunden kommen, sind wir der Ort, zu dem der Kunde kommt. Wir besitzen den Raum, die Ausstattung, die Küche und das Team — alles an einem Ort.</p>
+      <h2 class="section-title">Unser <em>Geschäftsmodell</em></h2>
+      <p class="section-body">Moments Events ist ein Premium Event-Venue in Timișoara. Im Gegensatz zu klassischen Veranstaltungsagenturen, die zum Kunden kommen, sind wir der Ort, zu dem der Kunde kommt. Wir besitzen den Raum, die Ausstattung, die Küche, 7 Gästezimmer und das Team — alles an einem Ort.</p>
       <p class="section-body">Unser Geschäftsmodell ist einfach: Der Kunde reserviert, und wir liefern eine komplette Veranstaltung von A bis Z. Ohne mehrere Lieferanten, ohne Koordinationsaufwand, ohne unerwartete Überraschungen.</p>
       <div class="quote-block">„Eine erfolgreiche Veranstaltung misst sich nicht an perfekten Details, sondern an den Emotionen, die sie hinterlässt."</div>
       <div class="grid-3">
@@ -363,7 +561,7 @@
         <div class="card">
           <div class="card-number">2</div>
           <p class="card-sub">Full Service</p>
-          <p class="card-text">Saal, Catering, Dekoration und Koordination sind in einem einzigen Preis enthalten.</p>
+          <p class="card-text">Saal, Catering, Dekoration, Zimmer und Koordination sind in einem einzigen Preis enthalten.</p>
         </div>
         <div class="card">
           <div class="card-number">3</div>
@@ -429,7 +627,7 @@
           </div>
           <div class="landmark">
             <div class="landmark-icon">⚑</div>
-            <p class="landmark-text">Direkt an der <strong>Nationalstraße DN59A</strong>, einem stark befahrenen Korridor mit hoher Sichtbarkeit</p>
+            <p class="landmark-text">Direkt an der <strong>Nationalstraße</strong>, einem stark befahrenen Korridor mit hoher Sichtbarkeit</p>
           </div>
         </div>
       </div>
@@ -460,12 +658,13 @@
     <div class="page-header-content">
       <p class="page-eyebrow">Unsere Räume</p>
       <h1 class="page-title">Drei <em>Räume</em> für jede Gelegenheit</h1>
-      <p class="page-subtitle">Maximale Flexibilität — alle drei Räume können am selben Tag parallel genutzt werden.</p>
+      <p class="page-subtitle">Maximale Flexibilität — mit mobiler Trennwand im Grand Hall können bis zu zwei Events parallel stattfinden.</p>
     </div>
   </div>
   <section class="content-section">
     <div class="container">
       <p class="section-body">Wir haben uns für drei unterschiedliche Räume entschieden, um jeder Art von Veranstaltung den perfekten Rahmen zu bieten. Diese Flexibilität ist ein wichtiger Vorteil gegenüber Mitbewerbern, die nur einen einzigen Saal anbieten können.</p>
+
       <div class="grid-3">
         <div class="card-dark">
           <p class="card-sub">Hauptsaal</p>
@@ -486,7 +685,77 @@
           <p class="card-text">Angelegter Garten. Für Zeremonien im Freien, Cocktails und Feiern in der warmen Jahreszeit.</p>
         </div>
       </div>
-      <div class="quote-block">Die Besonderheit: alle drei Räume können parallel genutzt werden — während im Grand Hall eine Hochzeit stattfindet, kann im Crystal Hall ein Geburtstag gefeiert werden.</div>
+
+      <div class="feature-highlight">
+        <p class="card-sub">Unser Alleinstellungsmerkmal</p>
+        <h3>Die mobile <em>Trennwand</em> im Grand Hall</h3>
+        <p>Der Grand Hall verfügt über eine professionelle schalldämmende Trennwand, die den Saal in zwei kleinere Säle von je 425 m² teilt. Das bedeutet: Wir können am selben Tag <strong>zwei unabhängige Events gleichzeitig</strong> austragen — zwei Hochzeiten, eine Hochzeit und eine Taufe, oder einen Firmenevent und eine Privatfeier.</p>
+        <p style="margin-top:16px">Zusammen mit dem Crystal Hall sind damit bis zu <strong>drei parallele Veranstaltungen</strong> möglich — eine Flexibilität, die kein Mitbewerber in Timișoara bieten kann.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ZIMMER ═══ -->
+<div class="page" id="zimmer">
+  <div class="page-header">
+    <div class="page-header-content">
+      <p class="page-eyebrow">Unsere Zimmer</p>
+      <h1 class="page-title">Übernachtung <em>vor Ort</em></h1>
+      <p class="page-subtitle">7 Gästezimmer für 16 Personen — ein einzigartiger Vorteil in Timișoara. Ihre Gäste müssen nach der Feier nicht mehr fahren.</p>
+    </div>
+  </div>
+  <section class="content-section">
+    <div class="container">
+      <p class="section-body">Ein Hauptgrund, weshalb viele Gäste eine Feier früh verlassen müssen, ist die Heimfahrt. Wir haben dieses Problem gelöst: Auf unserem Gelände stehen <strong>7 voll ausgestattete Gästezimmer</strong> zur Verfügung, in denen Ihre Gäste nach der Veranstaltung entspannt übernachten können.</p>
+
+      <div class="rooms-detail">
+        <div class="room-card-full">
+          <p class="room-size">5 Zimmer · Doppelbelegung</p>
+          <h3>Standard Zimmer</h3>
+          <p>Komfortable Doppelzimmer für je 2 Personen — ideal für Paare, die bei der Veranstaltung dabei sind und am Abend einfach nur noch den Raum wechseln möchten, ohne nach Hause zu fahren.</p>
+          <ul>
+            <li>Doppelbett oder zwei Einzelbetten</li>
+            <li>Eigenes Badezimmer mit Dusche</li>
+            <li>Klimaanlage und WLAN</li>
+            <li>Schreibtisch und Kleiderschrank</li>
+            <li>Frühstück optional verfügbar</li>
+          </ul>
+        </div>
+        <div class="room-card-full" style="border-top-color:var(--navy)">
+          <p class="room-size" style="color:var(--navy)">2 Zimmer · Familie</p>
+          <h3>Familienzimmer</h3>
+          <p>Größere Zimmer für je 3 Personen — ideal für Familien mit Kindern oder kleine Gruppen, die zusammenbleiben möchten.</p>
+          <ul>
+            <li>Ein Doppelbett + ein Einzelbett</li>
+            <li>Eigenes Badezimmer mit Badewanne</li>
+            <li>Klimaanlage und WLAN</li>
+            <li>Sitzecke und zusätzlicher Stauraum</li>
+            <li>Frühstück optional verfügbar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-4" style="margin-top:40px">
+        <div class="big-stat">
+          <div class="num">7</div>
+          <p class="label">Zimmer gesamt</p>
+        </div>
+        <div class="big-stat">
+          <div class="num">16</div>
+          <p class="label">Schlafplätze</p>
+        </div>
+        <div class="big-stat">
+          <div class="num">80–120<span> €</span></div>
+          <p class="label">Pro Nacht</p>
+        </div>
+        <div class="big-stat">
+          <div class="num">100 %</div>
+          <p class="label">Eigene Bäder</p>
+        </div>
+      </div>
+
+      <div class="quote-block">Ein Wettbewerbsvorteil, den keiner unserer Konkurrenten in Timișoara bietet. Für Hochzeitsgäste aus Arad, Lugoj oder dem Ausland ein entscheidendes Argument.</div>
     </div>
   </section>
 </div>
@@ -503,6 +772,7 @@
   <section class="content-section">
     <div class="container">
       <p class="section-body">Im Gegensatz zu unseren Mitbewerbern ist unser Preis vollständig transparent. Er beinhaltet den Saal, das Catering, die Grunddekoration und die Koordination. Der Kunde zahlt nichts extra — außer für Musik und Fotografie.</p>
+      <div class="table-wrapper">
       <table class="table-simple">
         <thead>
           <tr><th>Leistung</th><th>Taufe/Geburtstag</th><th>Hochzeit Standard</th><th>Hochzeit Premium</th></tr>
@@ -515,9 +785,15 @@
           <tr><td>Dekoration</td><td>Basis</td><td>Standard</td><td>Premium personalisiert</td></tr>
           <tr><td>Koordinator</td><td>✓</td><td>✓</td><td>Full-Day dediziert</td></tr>
           <tr><td>Foto-Video-Partner</td><td>—</td><td>—</td><td>✓ Enthalten</td></tr>
+          <tr><td>Zimmer für Brautpaar</td><td>—</td><td>—</td><td>✓ 1 Nacht inkl.</td></tr>
           <tr class="total"><td>Preis pro Person</td><td class="highlight">55–65 €</td><td class="highlight">90–110 €</td><td class="highlight">120–150 €</td></tr>
         </tbody>
       </table>
+      </div>
+      <div class="feature-highlight">
+        <h3>Zusatzleistung: <em>Übernachtung</em></h3>
+        <p>Zusätzlich zu jedem Paket können Sie einzelne Zimmer für Ihre Gäste zu Vorzugspreisen reservieren: <strong>80 € pro Standard-Zimmer</strong> (2 Pers.) oder <strong>120 € pro Familienzimmer</strong> (3 Pers.) pro Nacht, inklusive Frühstück am nächsten Morgen.</p>
+      </div>
     </div>
   </section>
 </div>
@@ -564,17 +840,19 @@
     <div class="container">
       <p class="section-eyebrow">Konkurrenz</p>
       <h2 class="section-title">Die <em>Konkurrenz</em> in Timișoara</h2>
-      <p class="section-body">Timișoara hat 320.000 Einwohner und ist die drittgrößte Stadt Rumäniens. Die Nachfrage nach Veranstaltungen ist hoch, besonders nach 2023, als die Stadt Kulturhauptstadt Europas war.</p>
+      <p class="section-body">Timișoara hat 320.000 Einwohner und ist die drittgrößte Stadt Rumäniens. Die Nachfrage nach Veranstaltungen ist hoch und wächst kontinuierlich.</p>
+      <div class="table-wrapper">
       <table class="table-simple">
         <thead><tr><th>Konkurrent</th><th>Kapazität</th><th>Positionierung</th><th>Schwäche</th></tr></thead>
         <tbody>
-          <tr><td><strong>Venue Events</strong></td><td>400 Plätze</td><td>Premium</td><td>Nur ein Standort</td></tr>
+          <tr><td><strong>Venue Events</strong></td><td>400 Plätze</td><td>Premium</td><td>Keine Zimmer, ein Saal</td></tr>
           <tr><td><strong>Tresor Le Palais</strong></td><td>450 Plätze</td><td>Luxus 5⭐</td><td>Sehr hohe Preise</td></tr>
           <tr><td><strong>Galla Events</strong></td><td>300 Plätze</td><td>Mittel–Premium</td><td>Peripherie, weite Anfahrt</td></tr>
           <tr><td><strong>La Rousse</strong></td><td>170 Plätze</td><td>Klassisch</td><td>Altmodisches Design</td></tr>
         </tbody>
       </table>
-      <div class="quote-block">Unsere Vorteile: schnelle digitale Kommunikation, zwei Säle parallel nutzbar, mehrere Zielgruppen (Premium und Mittelklasse), junges Team mit Gespür für aktuelle Trends.</div>
+      </div>
+      <div class="quote-block">Unsere Vorteile: 7 Gästezimmer vor Ort, mobile Trennwand für parallele Events, schnelle digitale Kommunikation, junges Team mit Gespür für aktuelle Trends.</div>
     </div>
   </section>
 </div>
@@ -623,9 +901,9 @@
           <p class="card-text">Fotografen, DJs, Floristen erhalten Provision für jeden vermittelten Kunden.</p>
         </div>
         <div class="card">
-          <p class="card-sub">Launch</p>
-          <p class="card-title">Eröffnungs-Event</p>
-          <p class="card-text">Mit lokaler Presse und Influencern. Dediziertes Budget: 5.000 €.</p>
+          <p class="card-sub">Outdoor</p>
+          <p class="card-title">Billboards in TM</p>
+          <p class="card-text">Großformatige Werbetafeln an strategischen Punkten in Timișoara — am Flughafen, an den Stadteinfahrten und in den Hauptverkehrsadern.</p>
         </div>
         <div class="card">
           <p class="card-sub">Präsenz offline</p>
@@ -649,23 +927,24 @@
   <section class="content-section">
     <div class="container">
       <p class="section-eyebrow">Startkapital</p>
-      <h2 class="section-title">850.000 € — <em>komplett in bar</em></h2>
-      <p class="section-body">Um Moments Events zu gründen, benötigen wir 850.000 €, die vollständig in bar von den vier Gesellschaftern aufgebracht werden. Keine Bankkredite, keine Schulden.</p>
-      <div class="quote-block">„Das Fehlen einer Bankrate ist der größte Wettbewerbsvorteil, den wir beim Start haben."</div>
+      <h2 class="section-title">1.050.000 € — <em>komplett in bar</em></h2>
+      <p class="section-body">Um Moments Events zu gründen, benötigen wir 1.050.000 €, die vollständig in bar von den vier Gesellschaftern aufgebracht werden. Keine Bankkredite, keine Schulden.</p>
+      <div class="table-wrapper">
       <table class="table-simple">
         <thead><tr><th>Investition</th><th>Betrag</th><th>Anteil</th></tr></thead>
         <tbody>
-          <tr><td>Grundstück + Gebäudebau (~1.200 m²)</td><td class="highlight">550.000 €</td><td>65 %</td></tr>
-          <tr><td>Komplette Innenausstattung</td><td>80.000 €</td><td>9,4 %</td></tr>
-          <tr><td>Industrielle Küchenausstattung</td><td>50.000 €</td><td>5,9 %</td></tr>
-          <tr><td>Professionelle Tontechnik</td><td>45.000 €</td><td>5,3 %</td></tr>
-          <tr><td>Lichtanlage (Moving Heads, LED)</td><td>30.000 €</td><td>3,5 %</td></tr>
-          <tr><td>Liquiditätsreserve (3 Monate)</td><td>30.000 €</td><td>3,5 %</td></tr>
-          <tr><td>Anlage des Außengartens</td><td>25.000 €</td><td>2,9 %</td></tr>
-          <tr><td>Möbel + Lieferwagen + Marketing</td><td>40.000 €</td><td>4,7 %</td></tr>
-          <tr class="total"><td>GESAMT</td><td>850.000 €</td><td>100 %</td></tr>
+          <tr><td>Grundstück + Gebäudebau (~1.400 m²)</td><td class="highlight">620.000 €</td><td>59 %</td></tr>
+          <tr><td>Komplette Innenausstattung</td><td>80.000 €</td><td>7,6 %</td></tr>
+          <tr><td>7 Gästezimmer (Einrichtung + Bäder)</td><td>150.000 €</td><td>14,3 %</td></tr>
+          <tr><td>Mobile schalldämmende Trennwand</td><td>35.000 €</td><td>3,3 %</td></tr>
+          <tr><td>Industrielle Küchenausstattung</td><td>50.000 €</td><td>4,8 %</td></tr>
+          <tr><td>Ton- und Lichtanlage</td><td>75.000 €</td><td>7,1 %</td></tr>
+          <tr><td>Liquiditätsreserve (3 Monate)</td><td>30.000 €</td><td>2,9 %</td></tr>
+          <tr><td>Möbel + Lieferwagen + Marketing</td><td>10.000 €</td><td>1,0 %</td></tr>
+          <tr class="total"><td>GESAMT</td><td>1.050.000 €</td><td>100 %</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </section>
   <section class="content-section" style="background:white">
@@ -675,19 +954,22 @@
       <p class="section-body">Die Kosten unterteilen sich in fixe Kosten (unabhängig von der Anzahl der Veranstaltungen) und variable Kosten (abhängig von der Anzahl der Events).</p>
       <div class="grid-2">
         <div>
+          <div class="table-wrapper">
           <table class="table-simple">
             <thead><tr><th>Fixkosten (monatlich)</th><th>Betrag</th></tr></thead>
             <tbody>
-              <tr><td>Personal (Festangestellte)</td><td>7.500 €</td></tr>
-              <tr><td>Nebenkosten (Strom, Gas, Wasser)</td><td>1.200 €</td></tr>
-              <tr><td>Versicherungen</td><td>400 €</td></tr>
+              <tr><td>Personal (Festangestellte)</td><td>8.500 €</td></tr>
+              <tr><td>Housekeeping (Zimmer)</td><td>1.200 €</td></tr>
+              <tr><td>Nebenkosten (Strom, Gas, Wasser)</td><td>1.500 €</td></tr>
+              <tr><td>Versicherungen</td><td>500 €</td></tr>
               <tr><td>Online-Marketing</td><td>300 €</td></tr>
-              <tr><td>Steuerberater</td><td>200 €</td></tr>
-              <tr class="total"><td>GESAMT FIX</td><td>9.500 €</td></tr>
+              <tr class="total"><td>GESAMT FIX</td><td>12.000 €</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
         <div>
+          <div class="table-wrapper">
           <table class="table-simple">
             <thead><tr><th>Variable Kosten / Event</th><th>Pro Person</th></tr></thead>
             <tbody>
@@ -697,6 +979,7 @@
               <tr class="total"><td>GESAMT VARIABEL</td><td>35–45 €</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>
@@ -719,7 +1002,7 @@
           <p class="label">Hochzeit Premium</p>
         </div>
       </div>
-      <p class="section-body" style="margin-top:40px"><strong>Praktisches Beispiel:</strong> Hochzeit mit 300 Personen × 100 € = 30.000 € Einnahmen. Variable Kosten: 300 × 40 € = 12.000 €. <strong>Deckungsbeitrag: 18.000 € pro Event.</strong></p>
+      <p class="section-body" style="margin-top:40px"><strong>Praktisches Beispiel:</strong> Hochzeit mit 300 Personen × 100 € = 30.000 € Einnahmen. Variable Kosten: 300 × 40 € = 12.000 €. <strong>Deckungsbeitrag: 18.000 € pro Event.</strong> Plus ca. 500–700 € pro Nacht aus vermieteten Zimmern.</p>
     </div>
   </section>
   <section class="content-section" style="background:white">
@@ -749,7 +1032,7 @@
           <p class="card-text">Auf Gehälter der Mitarbeiter.</p>
         </div>
       </div>
-      <div class="quote-block">Bruttogewinn ~500.000 € → Nach allen Steuern bleiben netto ca. 340.000 € pro Jahr.</div>
+      <div class="quote-block">Bruttogewinn ~550.000 € → Nach allen Steuern bleiben netto ca. 370.000 € pro Jahr.</div>
     </div>
   </section>
   <section class="content-section">
@@ -761,19 +1044,19 @@
         <div class="card">
           <p class="card-sub">Pessimistisch</p>
           <p class="card-title">2 Events / Monat</p>
-          <div class="card-number" style="color:var(--red)">–2.500 €</div>
+          <div class="card-number" style="color:var(--red)">–3.000 €</div>
           <p class="card-text">Monatlicher Verlust — abgedeckt durch Liquiditätsreserve in den ersten Monaten.</p>
         </div>
         <div class="card">
           <p class="card-sub">Realistisch</p>
           <p class="card-title">4 Events / Monat</p>
-          <div class="card-number" style="color:var(--green)">+7.500 €</div>
+          <div class="card-number" style="color:var(--green)">+8.000 €</div>
           <p class="card-text">Solider monatlicher Gewinn. Unser Zielwert nach 4–6 Monaten.</p>
         </div>
         <div class="card">
           <p class="card-sub">Optimistisch</p>
           <p class="card-title">8 Events / Monat</p>
-          <div class="card-number" style="color:var(--green)">+27.500 €</div>
+          <div class="card-number" style="color:var(--green)">+30.000 €</div>
           <p class="card-text">Hervorragender Gewinn in der Hochsaison (Mai–Oktober).</p>
         </div>
       </div>
@@ -783,18 +1066,18 @@
     <div class="container">
       <p class="section-eyebrow">Investition</p>
       <h2 class="section-title">Wann <em>verdienen</em> wir die Investition zurück</h2>
-      <p class="section-body">Bei einem realistischen Volumen von 150–170 Events pro Jahr ab dem zweiten Betriebsjahr und einem durchschnittlichen Nettogewinn von 3.000 € pro Event (nach Steuern) kommen wir auf einen Nettojahresgewinn von ca. 280.000 €.</p>
+      <p class="section-body">Bei einem realistischen Volumen von 150–170 Events pro Jahr ab dem zweiten Betriebsjahr und einem durchschnittlichen Nettogewinn von 3.000 € pro Event (nach Steuern), plus den Einnahmen aus den 7 Zimmern, kommen wir auf einen Nettojahresgewinn von ca. 370.000 €.</p>
       <div class="grid-4">
         <div class="big-stat">
-          <div class="num">850k<span> €</span></div>
+          <div class="num">1.050k<span> €</span></div>
           <p class="label">Startinvestition</p>
         </div>
         <div class="big-stat">
-          <div class="num">~180k<span> €</span></div>
+          <div class="num">~200k<span> €</span></div>
           <p class="label">Netto Jahr 1</p>
         </div>
         <div class="big-stat">
-          <div class="num">~340k<span> €</span></div>
+          <div class="num">~370k<span> €</span></div>
           <p class="label">Netto Jahr 2–3</p>
         </div>
         <div class="big-stat">
@@ -802,7 +1085,7 @@
           <p class="label">Rückgewinnung</p>
         </div>
       </div>
-      <p class="section-body" style="margin-top:40px">Nach 4 Jahren ist das Unternehmen vollständig amortisiert und jedes Event generiert reinen Nettogewinn. Ab dem fünften Jahr kann jeder Gesellschafter jährlich zwischen 60.000–100.000 € als Dividende entnehmen.</p>
+      <p class="section-body" style="margin-top:40px">Nach 4 Jahren ist das Unternehmen vollständig amortisiert und jedes Event generiert reinen Nettogewinn. Ab dem fünften Jahr kann jeder Gesellschafter jährlich zwischen 70.000–110.000 € als Dividende entnehmen.</p>
     </div>
   </section>
 </div>
@@ -924,10 +1207,23 @@
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     const link = document.querySelector('.nav-links a[data-page="' + id + '"]');
     if (link) link.classList.add('active');
+
+    document.querySelectorAll('.mobile-scroll-nav a').forEach(a => a.classList.remove('active'));
+    const mobileLink = document.querySelector('.mobile-scroll-nav a[data-scroll-page="' + id + '"]');
+    if (mobileLink) {
+      mobileLink.classList.add('active');
+      mobileLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
     window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
   }
 
   function handleSubmit(e) {
